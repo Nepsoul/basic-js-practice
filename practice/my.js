@@ -17,6 +17,6 @@ person['school'] = {name: {
  //to change the value of key //reassign
  person.school.name.short = 'Ascol'
  console.log(person);
- console.log(person);
+ 
 
  
