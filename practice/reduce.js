@@ -27,35 +27,37 @@ min([1,2,3,4,5], 'index') // => 0
 */
 
 minVal([5,4,3,2,1])
-function minVal(arr,toReturn) {
-    console.log(arr)
-    debugger
-     let smallest=arr[0]
-     let index=0
-     for(let i=0;i<arr.length;i++){
-        if(arr[i]<smallest)
-        {smallest=arr[i]
-            index=i
+// function minVal(arr,toReturn) {
+//     console.log(arr)
+//     debugger
+//      let smallest=arr[0]
+//      let index=0
+//      for(let i=0;i<arr.length;i++){
+//         if(arr[i]<smallest)
+//         {smallest=arr[i]
+//             index=i
 
-        }
-    }
-   console.log(smallest)
-    console.log(index)
-    if(toReturn==="value"){
-        return smallest
-    }else{return index}    
-}
+//         }
+//     }
+//    console.log(smallest)
+//     console.log(index)
+//     if(toReturn==="value"){
+//         return smallest
+//     }else{return index}    
+// }
 
 function minVal(arr,toReturn) {
     //console.log(arr)
     debugger 
    let minVal=arr.reduce((a,b)=>Math.min(a,b))
+   console.log(minVal)
    let index=arr.indexOf(minVal)
+   console.log(index)
    return toReturn==="value"?minVal:index  
 }
 
-function minVal(arr,toReturn) {
-    toReturn==="value"?Math.min(...arr):arr.indexOf(Math.min(...arr))}
+// function minVal(arr,toReturn) {
+//     toReturn==="value"?Math.min(...arr):arr.indexOf(Math.min(...arr))}
 
    /*  Given an array of numbers and an index, return either the index of the smallest number that
     is larger than the element at the given index, or -1 if there is no such index ( or, where applicable, 
@@ -75,7 +77,7 @@ leastLarger( [4, 1, 3, 5, 6], 4 )  => -1
   4. find the index of 5.=>3
 */ 
 function leastLarger(a,i) {
-    //console.log(a,i)
+    console.log(a,i)
    let num=a[i]
    console.log(num)
    let greater=a.filter(x=>x>num)
