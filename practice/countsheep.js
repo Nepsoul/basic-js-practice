@@ -16,7 +16,7 @@ countSheep(2)=> "1 sheep...2 sheep...";
 */
 var countSheep = function (num) {
   let sheep = "";
-  for (let i = i; i <= num; i++) {
+  for (let i = 1; i <= num; i++) {
     sheep += i + ` sheep...`;
   }
   return sheep;

@@ -40,7 +40,7 @@ function sortArray(array) {
   //========>alternative of oddEven <========
   
   function sortArray(array) {
-    debugger
+    
     let oddNum = array.filter((x)=>x%2===1 || x%2 ===-1).sort((a,b)=>a-b)
     let i = 0
     //console.log(oddNum)
