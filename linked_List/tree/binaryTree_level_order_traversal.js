@@ -41,25 +41,34 @@ root.left = new TreeNode(9);
 root.right = new TreeNode(20);
 root.right.left = new TreeNode(15);
 root.right.right = new TreeNode(7);
-// console.dir(root, { depth: null });
+console.dir(root, { depth: null });
+
+// [1,2,3,4,5]
+// const root = new TreeNode(1);
+// root.left = new TreeNode(2);
+// root.right = new TreeNode(3);
+// root.left.left = new TreeNode(4);
+// root.left.right = new TreeNode(5);
 
 var levelOrder = function (root) {
   debugger;
   let stack = [];
+
+  if (!root) return [];
+
   let resultStack = [];
+
   stack.push(root);
-  //   console.dir(stack, { depth: null }, "stack");
   while (stack.length > 0) {
     let levelStack = [];
-    let node = stack.pop();
-    // result.push(node.val);
-    if (node.right && node.left) {
-      stack.push(node.right);
-      stack.push(node.left);
-      levelStack.push(node.left.val);
-      levelStack.push(node.right.val);
-      resultStack.push(levelStack);
+    let stackLength = stack.length;
+    for (let i = 0; i < stackLength; i++) {
+      let node = stack.shift();
+      levelStack.push(node.val);
+      if (node.left) stack.push(node.left);
+      if (node.right) stack.push(node.right);
     }
+    resultStack.push(levelStack);
 
     //=========================================
     // let levelStack = [];

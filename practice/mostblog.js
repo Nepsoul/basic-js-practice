@@ -49,33 +49,87 @@ const listOfBlogs = [
   },
 ];
 
-const mostBlogs = (blogs) => {
-  // console.log(blogs, "blogs");
+// const mostBlogs = (blogs) => {
+//   // console.log(blogs, "blogs");
+//   debugger;
+//   const blogCount = {};
+//   for (const blog of blogs) {
+//     // console.log(blog, "blog");
+//     const author = blog.author;
+//     if (author in blogCount) {
+//       //   console.log(blogCount, "blog count");
+//       //   console.log(author, "author");
+//       blogCount[author]++;
+//     } else {
+//       blogCount[author] = 1;
+//     }
+//   }
+//   let maxAuthor = null;
+//   let maxBlog = 0;
+
+//   for (const author in blogCount) {
+//     // console.log(author, "author");
+//     // console.log(blogCount, "blogcount");
+//     if (blogCount[author] > maxBlog) {
+//       maxBlog = blogCount[author];
+//       maxAuthor = author;
+//     }
+//   }
+//   return maxAuthor ? { author: maxAuthor, blog: maxBlog } : null;
+// };
+
+// console.log(mostBlogs(listOfBlogs));
+
+const mostLikes = (blog) => {
   debugger;
-  const blogCount = {};
-  for (const blog of blogs) {
-    // console.log(blog, "blog");
-    const author = blog.author;
-    if (author in blogCount) {
-      //   console.log(blogCount, "blog count");
-      //   console.log(author, "author");
-      blogCount[author]++;
+  let trackBlog = {};
+  for (const key of blog) {
+    const author = key.author;
+    const likes = key.likes;
+    if (author in trackBlog) {
+      trackBlog[author]++;
+      totalLikes[likes] = key.likes + totalLikes.likes;
     } else {
-      blogCount[author] = 1;
+      totalLikes[author] = 1;
     }
   }
-  let maxAuthor = null;
-  let maxBlog = 0;
+  // let maxAuthor = null;
+  // let maxLikes = 0;
+  // for (const author in totalLikes) {
+  //   if (totalLikes[author] > maxLikes) {
+  //     maxLikes = totalLikes[author];
+  //     maxAuthor = author;
+  //   }
+  // }
+  return maxAuthor ? { author: maxAuthor, likes: maxLikes } : null;
+  //===================
 
-  for (const author in blogCount) {
-    // console.log(author, "author");
-    // console.log(blogCount, "blogcount");
-    if (blogCount[author] > maxBlog) {
-      maxBlog = blogCount[author];
-      maxAuthor = author;
-    }
-  }
-  return maxAuthor ? { author: maxAuthor, blog: maxBlog } : null;
+  //this code is not working shold be make working
+  // const result = blog.reduce(
+  //   (accumulator, item) => {
+  //     const authorLikes = accumulator.authorLikes || {};
+  //     if (authorLikes[item.author]) {
+  //       authorLikes[item.author] += item.likes;
+  //     } else {
+  //       authorLikes[item.author] = item.likes;
+  //     }
+  //     if (
+  //       !accumulator.maxAuthor ||
+  //       authorLikes[item.author] > authorLikes[accumulator.maxAuthor]
+  //     ) {
+  //       return {
+  //         authorLikes: item.likes,
+  //         maxAuthor: item.author,
+  //       };
+  //     }
+  //     return {
+  //       maxLikes: accumulator.likes,
+  //       maxAuthor: accumulator.maxAuthor,
+  //     };
+  //   },
+  //   { maxLikes: 0, maxAuthor: null }
+  // );
+  // return result;
 };
-
-console.log(mostBlogs(listOfBlogs));
+// debugger;
+console.log(mostLikes(listOfBlogs));
