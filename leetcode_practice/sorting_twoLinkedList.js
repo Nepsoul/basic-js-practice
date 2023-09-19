@@ -54,7 +54,7 @@ var mergeTwoLists = function (list1, list2) {
       head2.next = head2;
       currNode.next = head1;
       head1.next = head1;
-      a;
+
       currNode.next = currNode.next.next;
     }
     // console.dir(head1);
