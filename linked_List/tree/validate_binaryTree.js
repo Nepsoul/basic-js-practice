@@ -190,7 +190,7 @@ var isValidBST = function (root) {
     //   return true;
     // }
 
-    if (curNode.min !== null && curNode.min > curNode.node.val) {
+    if (curNode.min !== null && curNode.min >= curNode.node.val) {
       return false;
     }
     if (curNode.max !== null && curNode.max <= curNode.node.val) {
